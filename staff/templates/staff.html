@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<title> {% block title %} Landing Page {% endblock title %}</title>
+{% block content %}
+<div class="margin-lg">
+ <h2 style="text-align:center; margin-top:10px;" >
+    Biz hodimlarimiz
+ </h2>
+</div>
+  {% for worker in workers %}
+     <h3 style="text-align:center; margin-top:50px;">{{worker.first_name}} {{worker.last_name}}</h3>
+     <div style="display:flex; align-items:center; justify-content:space-evenly; align-content:center;">
+
+
+              <img style="height:300px; width:300px;" src="{{ worker.photo.url }}">
+
+
+              <h5 style=" max-width:600px; " >{{worker.information}}</h5>
+
+     </div>
+  {% endfor %}
+ {% endblock %}
